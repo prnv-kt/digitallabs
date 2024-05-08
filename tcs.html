@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Camera entity -->
+      <a-entity id="camera" camera look-controls position="0 1.6 0">
+        <a-animation
+          attribute="position"
+          to="0 2.5 -5"
+          dur="3000"
+          easing="linear"
+          begin="startAnimation"
+        ></a-animation>
+      </a-entity>
+
+      <!-- 3D Model -->
+      <a-entity
+        position="-1.5 1.25 1.5"
+        rotation="0 45 0"
+        scale="0.1 0.1 0.1" 
+        gltf-model="src: url(./src/lectorium_for_vr_education/scene.gltf)"
+      ></a-entity>
+
+      <a-entity
+        position="0 1.6 0"
+        rotation="0 270 0"
+        scale="1 1 1" 
+        gltf-model="src: url(./src/talk/scene.gltf)"
+      ></a-entity>
+
+      <!-- Sky -->
+      <a-sky src="./src/belfast_sunset_puresky.jpg"></a-sky>
+
+      <!-- Teleport point 1 with icon -->
+      <a-image
+        id="teleport1"
+        position="-1.2 1.7 -5"
+        rotation="0 45 0"
+        src="./src/rec.png" 
+        width="0.5" height="0.5"
+        teleport-controls
+        cursor-listener
+      ></a-image>
+
+
+      <a-image
+      position="0 2 -3"
+      src="./src/TCS/SolutionsTCS.png" 
+      width="1" height="1"
+    ></a-image>
+
+    <a-image
+      position="3 2 -3"
+      rotation= "0 -60 0"
+      src="./src/TCS/VideoSTCS.png" 
+      width="1" height="1"
+    ></a-image>
+
+    
+    <a-image
+      position="3 2 0"
+      rotation= "0 -90 0"
+      src="./src/TCS/DetailSTCS.png" 
+      width="1" height="1"
+    ></a-image>
+    <a-entity id="sceneLoader" event-set__loaded="_event: loaded; startAnimation"></a-entity>
+    </a-scene>
+  </body>
+</html>
